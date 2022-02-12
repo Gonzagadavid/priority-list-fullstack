@@ -28,3 +28,13 @@ export const INCORRECT_PASSWORD = {
   status: UNAUTHORIZED,
   message: 'Incorrect password',
 };
+
+export const UNAUTHORIZED_TOKEN = {
+  status: UNAUTHORIZED,
+  message: 'jwt malformed',
+};
+
+export const MISSING_AUTH_TOKEN = {
+  status: UNAUTHORIZED,
+  message: 'missing auth token',
+};
