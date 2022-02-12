@@ -1,3 +1,3 @@
-const checkEmail = (email) => /^[\w\-\.]+@\w+\.com(\.br)?/.test(email);
+const checkEmail = (email) => /^[\w\-.]+@\w+\.com(\.br)?/.test(email);
 
 export default checkEmail;
