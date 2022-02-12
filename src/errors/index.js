@@ -1,6 +1,8 @@
 import { StatusCodes } from 'http-status-codes';
 
-const { INTERNAL_SERVER_ERROR, BAD_REQUEST, CONFLICT } = StatusCodes;
+const {
+  INTERNAL_SERVER_ERROR, BAD_REQUEST, CONFLICT, NOT_FOUND, UNAUTHORIZED,
+} = StatusCodes;
 
 export const INTERNAL_ERROR = {
   status: INTERNAL_SERVER_ERROR,
@@ -15,4 +17,14 @@ export const INVALID_ENTRIES = {
 export const EMAIL_ALREADY_REGISTERED = {
   status: CONFLICT,
   message: 'Email already registered',
+};
+
+export const USER_NOT_FOUND = {
+  status: NOT_FOUND,
+  message: 'User not found',
+};
+
+export const INCORRECT_PASSWORD = {
+  status: UNAUTHORIZED,
+  message: 'Incorrect password',
 };

@@ -1,7 +1,7 @@
-import get from './get.js';
+import login from './login.js';
 import post from './post.js';
 
 export {
   post,
-  get,
+  login,
 };

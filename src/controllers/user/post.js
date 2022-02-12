@@ -8,7 +8,7 @@ const post = async (req, res, next) => {
 
     await insert({ name, password, email });
 
-    res.status(StatusCodes.OK).json(USER_CREATED);
+    res.status(StatusCodes.CREATED).json(USER_CREATED);
   } catch (err) {
     next(err);
   }
