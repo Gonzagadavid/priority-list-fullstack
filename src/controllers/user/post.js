@@ -1,4 +1,4 @@
-const post = (req, res, next) => {
+const post = async (req, res, next) => {
   try {
     throw new Error('só foi');
   } catch (err) {
