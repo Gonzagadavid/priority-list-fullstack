@@ -8,8 +8,8 @@ const OPTIONS = {
   useUnifiedTopology: true,
 };
 
-const { MONGO_DB_URL = 'localhost' } = process.env;
-const { DB_NAME = 'TodoList' } = process.env;
+const { MONGO_DB_URL } = process.env;
+const { DB_NAME } = process.env;
 
 let db = null;
 

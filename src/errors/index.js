@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 
-const { INTERNAL_SERVER_ERROR, BAD_REQUEST } = StatusCodes;
+const { INTERNAL_SERVER_ERROR, BAD_REQUEST, CONFLICT } = StatusCodes;
 
 export const INTERNAL_ERROR = {
   status: INTERNAL_SERVER_ERROR,
@@ -12,4 +12,7 @@ export const INVALID_ENTRIES = {
   message: 'Invalid entries. Try again.',
 };
 
-export const CONFLIT = {};
+export const EMAIL_ALREADY_REGISTERED = {
+  status: CONFLICT,
+  message: 'Email already registered',
+};

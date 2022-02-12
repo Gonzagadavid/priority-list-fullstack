@@ -1,6 +1,6 @@
-import { INVALID_ENTRIES } from '../errors';
-import checkEmail from './helpers/checkEmail';
-import checkFields from './helpers/checkFields';
+import { INVALID_ENTRIES } from '../errors/index.js';
+import checkEmail from './helpers/checkEmail.js';
+import checkFields from './helpers/checkFields.js';
 
 const validateUser = (req, _res, next) => {
   const { name, password, email } = req.body;
