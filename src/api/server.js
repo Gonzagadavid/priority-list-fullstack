@@ -5,4 +5,4 @@ config();
 
 const { PORT } = process.env;
 
-app.listen(PORT, () => console.log(`server started in port ${PORT}`));
+app.listen(PORT, () => global.console.log(`server started in port ${PORT}`));
