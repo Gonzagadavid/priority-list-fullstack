@@ -2,9 +2,9 @@ import { INVALID_ENTRIES } from '../errors/index.js';
 import checkFields from './helpers/checkFields.js';
 
 const validateTask = (req, _res, next) => {
-  const { title, description, status } = req.body;
+  const { task, priority, status } = req.body;
 
-  const checked = checkFields([title, description, status]);
+  const checked = checkFields([task, priority, status]);
 
   if (checked) return next();
 

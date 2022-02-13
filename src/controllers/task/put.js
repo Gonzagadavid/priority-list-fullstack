@@ -3,12 +3,12 @@ import { upadate } from '../../services/task/index.js';
 
 const put = async (req, res, next) => {
   try {
-    const { title, description, status } = req.body;
+    const { task, priority, status } = req.body;
     const { id } = req.params;
 
-    const task = await upadate(id, { title, description, status });
+    const taskUpdated = await upadate(id, { task, priority, status });
 
-    res.status(StatusCodes.OK).json(task);
+    res.status(StatusCodes.OK).json(taskUpdated);
   } catch (err) {
     next(err);
   }

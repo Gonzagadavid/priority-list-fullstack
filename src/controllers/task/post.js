@@ -4,10 +4,10 @@ import { insert } from '../../services/task/index.js';
 
 const post = async (req, res, next) => {
   try {
-    const { title, description, status } = req.body;
+    const { task, priority, status } = req.body;
     const { _id } = req.user;
 
-    await insert(_id, { title, description, status });
+    await insert(_id, { task, priority, status });
 
     res.status(StatusCodes.CREATED).json(TASK_CREATED);
   } catch (err) {
