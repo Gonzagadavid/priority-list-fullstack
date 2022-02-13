@@ -4,9 +4,13 @@ import { insert } from '../../services/user/index.js';
 
 const post = async (req, res, next) => {
   try {
-    const { name, password, email } = req.body;
+    const {
+      name, lastname, password, email,
+    } = req.body;
 
-    await insert({ name, password, email });
+    await insert({
+      name, lastname, password, email,
+    });
 
     res.status(StatusCodes.CREATED).json(USER_CREATED);
   } catch (err) {

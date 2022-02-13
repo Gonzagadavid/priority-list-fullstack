@@ -3,9 +3,11 @@ import checkEmail from './helpers/checkEmail.js';
 import checkFields from './helpers/checkFields.js';
 
 const validateUser = (req, _res, next) => {
-  const { name, password, email } = req.body;
+  const {
+    name, lastname, password, email,
+  } = req.body;
 
-  const checked = checkFields([name, email, password]) && checkEmail(email);
+  const checked = checkFields([name, lastname, email, password]) && checkEmail(email);
 
   if (checked) return next();
 
