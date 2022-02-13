@@ -1,3 +1,4 @@
+import deleteTask from './deleteTask.js';
 import get from './get.js';
 import getById from './getById.js';
 import post from './post.js';
@@ -8,4 +9,5 @@ export {
   get,
   put,
   getById,
+  deleteTask,
 };
