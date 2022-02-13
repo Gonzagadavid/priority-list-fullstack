@@ -1,5 +1,5 @@
 import { StatusCodes } from 'http-status-codes';
-import { TASK_CREATED } from '../../constants/messages.js';
+import { TASK_CREATED } from '../../messages/index.js';
 import { insert } from '../../services/task/index.js';
 
 const post = async (req, res, next) => {

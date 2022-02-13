@@ -6,7 +6,7 @@ const login = async (req, res, next) => {
     const { email, password } = req.body;
     const user = await check({ email, password });
 
-    res.status(StatusCodes.OK).json(user);
+    res.status(StatusCodes.ACCEPTED).json(user);
   } catch (err) {
     next(err);
   }
