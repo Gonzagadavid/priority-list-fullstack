@@ -1,12 +1,13 @@
 import axios from 'axios';
+import { saveSession } from '../../services/storage';
 import { actionError, actionlogged } from '../actions/appActions';
 import { actionUserData } from '../actions/userReducer';
-import { LOGIN } from './endpoints';
+import { SIGNUP } from './endpoints';
 
-const login = (userData, saveCallback) => async (dispatch) => {
+const register = (userData) => async (dispatch) => {
   try {
-    const { data } = await axios.post(LOGIN, userData);
-    saveCallback('todo-user', data);
+    const { data } = await axios.post(SIGNUP, userData);
+    saveSession('todo-user', data);
     dispatch(actionUserData(data));
     dispatch(actionlogged(true));
   } catch (err) {
@@ -15,4 +16,4 @@ const login = (userData, saveCallback) => async (dispatch) => {
   }
 };
 
-export default login;
+export default register;

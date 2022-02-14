@@ -1,8 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { signForm } from '../../constants/forms';
+import { CONFIRM_PASSWORD } from '../../constants/messages';
+import checkEmail from '../../functions/checkEmail';
+import checkFields from '../../functions/checkFields';
 import useForm from '../../hooks/useForm';
-import { actionLoginRender } from '../../redux/actions/appActions';
+import { actionLoginRender, actionMessage } from '../../redux/actions/appActions';
+import register from '../../redux/thunks/register';
 import './style.css';
 
 function Signup() {
@@ -11,6 +15,12 @@ function Signup() {
   const {
     name, lastname, email, password, confirm,
   } = form;
+  const checked = checkFields(Object.values(form)) && checkEmail(email);
+
+  const sendRegister = () => {
+    if (password !== confirm) return dispatch(actionMessage(CONFIRM_PASSWORD));
+    return dispatch(register(form));
+  };
 
   return (
     <div className="Login">
@@ -38,7 +48,7 @@ function Signup() {
         </label>
       </div>
       <div className="btn-container">
-        <button type="button">Cadastrar</button>
+        <button type="button" disabled={!checked} onClick={sendRegister}>Cadastrar</button>
         <button type="button" onClick={() => dispatch(actionLoginRender(true))}>Entrar</button>
       </div>
     </div>

@@ -1,0 +1,29 @@
+.Message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.Message .message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 40%;
+  background-color: rgb(95, 5, 5);
+  color:white;
+}
+
+.Message .message-container button{
+  border: none;
+  outline: none;
+  font-size: 20px;
+  padding: 8px;
+  cursor: pointer;
+}

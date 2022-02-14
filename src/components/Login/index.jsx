@@ -1,5 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import checkEmail from '../../functions/checkEmail';
+import checkFields from '../../functions/checkFields';
 import useInput from '../../hooks/useInput';
 import { actionLoginRender } from '../../redux/actions/appActions';
 import login from '../../redux/thunks/login';
@@ -11,6 +13,7 @@ function Login() {
   const [password, setPassword] = useInput('');
   const [stayLogged, setStayLogged] = useInput(true);
   const dispatch = useDispatch();
+  const checked = checkFields([email, password]) && checkEmail(email);
   const sendLogin = () => {
     const callbackSave = stayLogged ? saveLocal : saveSession;
     dispatch(login({ email, password }, callbackSave));
@@ -34,7 +37,7 @@ function Login() {
         </label>
       </div>
       <div className="btn-container">
-        <button type="button" onClick={sendLogin}>Entrar</button>
+        <button type="button" disabled={!checked} onClick={sendLogin}>Entrar</button>
         <button type="button" onClick={() => dispatch(actionLoginRender(false))}>Cadastrar</button>
       </div>
     </div>

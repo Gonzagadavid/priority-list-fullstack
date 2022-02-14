@@ -1,18 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import './App.css';
-import ConditionalComponent from './components/ConditionalComponent';
 import EntryContainer from './components/EntryContainer';
 import Header from './components/Header';
+import Message from './components/Message';
 import TaskContainer from './components/TaskContainer';
 
 function App() {
-  const { logged } = useSelector((state) => state.appReducer);
   return (
     <div className="App">
-      <ConditionalComponent condition={!logged}>
-        <EntryContainer />
-      </ConditionalComponent>
+      <Message />
+      <EntryContainer />
       <Header />
       <TaskContainer />
     </div>

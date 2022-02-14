@@ -6,16 +6,18 @@ import Signup from '../Signup';
 import './style.css';
 
 function EntryContainer() {
-  const { login } = useSelector((state) => state.appReducer);
+  const { login, logged } = useSelector((state) => state.appReducer);
   return (
-    <div className="EntryContainer">
-      <ConditionalComponent condition={login}>
-        <Login />
-      </ConditionalComponent>
-      <ConditionalComponent condition={!login}>
-        <Signup />
-      </ConditionalComponent>
-    </div>
+    <ConditionalComponent condition={!logged}>
+      <div className="EntryContainer">
+        <ConditionalComponent condition={login}>
+          <Login />
+        </ConditionalComponent>
+        <ConditionalComponent condition={!login}>
+          <Signup />
+        </ConditionalComponent>
+      </div>
+    </ConditionalComponent>
   );
 }
 
