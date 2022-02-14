@@ -1,5 +1,4 @@
 import { StatusCodes } from 'http-status-codes';
-import { USER_CREATED } from '../../messages/index.js';
 import { insert } from '../../services/user/index.js';
 
 const post = async (req, res, next) => {
@@ -8,11 +7,11 @@ const post = async (req, res, next) => {
       name, lastname, password, email,
     } = req.body;
 
-    await insert({
+    const user = await insert({
       name, lastname, password, email,
     });
 
-    res.status(StatusCodes.CREATED).json(USER_CREATED);
+    res.status(StatusCodes.CREATED).json(user);
   } catch (err) {
     next(err);
   }
