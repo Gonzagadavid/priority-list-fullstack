@@ -1,0 +1,44 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+
+.Login h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.Login .form {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.Login .form label {
+  display:flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.Login .form input {
+  font-size: 25px;
+  padding: 5px;
+}
+
+.Login .btn-container {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+}
+
+.Login .btn-container button {
+  font-size: 20px;
+  cursor: pointer;
+}
