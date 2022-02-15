@@ -7,7 +7,7 @@ const get = async (req, res, next) => {
 
     const tasks = await find(_id);
 
-    res.status(StatusCodes.OK).json({ tasks });
+    res.status(StatusCodes.OK).json(tasks);
   } catch (err) {
     next(err);
   }

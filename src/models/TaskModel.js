@@ -13,7 +13,7 @@ class TaskModel extends DBModel {
   }
 
   async updateTask(id, task) {
-    await this.updateOne({ _id: ObjectId(id) }, { $set: { ...task } });
+    await this.updateOne({ _id: ObjectId(id) }, { $set: { ...task, updated: new Date() } });
   }
 
   async removeTask(id) {
