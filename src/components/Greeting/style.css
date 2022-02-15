@@ -1,0 +1,9 @@
+.Header .Greeting {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  background-color: aqua;
+  position: absolute;
+  font-size: 25px;
+  right: 20px;
+}

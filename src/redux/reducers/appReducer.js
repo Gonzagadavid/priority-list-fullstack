@@ -1,9 +1,12 @@
+import getSaveUser from '../../functions/getSaveUser';
 import {
   ERROR, LOGGED, LOGIN_RENDER, MESSAGE,
 } from '../actions/appActions';
 
+const SAVE = getSaveUser();
+
 const INITIAL_STATE = {
-  logged: false,
+  logged: !!SAVE,
   login: true,
   loading: false,
   error: '',
