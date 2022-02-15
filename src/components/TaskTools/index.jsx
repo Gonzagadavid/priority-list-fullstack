@@ -1,16 +1,17 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { actionTaskForm } from '../../redux/actions/appActions';
 import { actionOrder } from '../../redux/actions/taskAction';
 import './style.css';
 
-function TaskTool() {
+function TaskTools() {
   const dispatch = useDispatch();
   const changeOrder = ({ target: { value } }) => {
     dispatch(actionOrder(value));
   };
   return (
-    <div className="TaskTool">
-      <button type="button" onClick={() => {}}>Adicionar Tarefa</button>
+    <div className="TaskTools">
+      <button type="button" onClick={() => dispatch(actionTaskForm(true))}>Adicionar Tarefa</button>
       <div className="order">
         <label htmlFor="priority">
           <input type="radio" id="priority" name="order" onChange={changeOrder} value="priority" />
@@ -33,4 +34,4 @@ function TaskTool() {
   );
 }
 
-export default TaskTool;
+export default TaskTools;

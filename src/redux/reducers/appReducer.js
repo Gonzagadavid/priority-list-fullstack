@@ -1,6 +1,6 @@
 import getSaveUser from '../../functions/getSaveUser';
 import {
-  ERROR, LOGGED, LOGIN_RENDER, MESSAGE,
+  ERROR, LOGGED, LOGIN_RENDER, MESSAGE, TASK_FORM,
 } from '../actions/appActions';
 
 const SAVE = getSaveUser();
@@ -11,6 +11,7 @@ const INITIAL_STATE = {
   loading: false,
   error: '',
   message: '',
+  taskForm: false,
 };
 
 const appReducer = (state = INITIAL_STATE, action) => {
@@ -26,6 +27,9 @@ const appReducer = (state = INITIAL_STATE, action) => {
 
     case MESSAGE:
       return { ...state, message: action.state };
+
+    case TASK_FORM:
+      return { ...state, taskForm: action.state };
 
     default: return state;
   }

@@ -8,7 +8,7 @@ const useForm = (initialState) => {
       value, checked, name, type,
     },
   }) => {
-    const newValue = type === 'checkbox' || type === 'radio' ? checked : value;
+    const newValue = type === 'checkbox' ? checked : value;
     setState({ ...state, [name]: newValue });
   };
 

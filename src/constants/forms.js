@@ -6,6 +6,13 @@ export const signForm = {
   confirm: '',
 };
 
+export const taskForm = {
+  priority: '',
+  title: '',
+  description: '',
+  status: 'pending',
+};
+
 export const loginForm = {
   email: '',
   password: '',
