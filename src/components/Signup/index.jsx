@@ -28,23 +28,23 @@ function Signup() {
       <div className="form">
         <label htmlFor="name">
           Nome:
-          <input name="name" type="text" value={name} onInput={setForm} placeholder="Nome" />
+          <input id="name" name="name" type="text" value={name} onInput={setForm} placeholder="Nome" />
         </label>
         <label htmlFor="lastname">
           Sobrenome:
-          <input name="lastname" type="text" value={lastname} onInput={setForm} placeholder="Sobrenome" />
+          <input id="lastname" name="lastname" type="text" value={lastname} onInput={setForm} placeholder="Sobrenome" />
         </label>
         <label htmlFor="email">
-          E-mail:
-          <input name="email" type="text" value={email} onInput={setForm} placeholder="usuario@email.com" />
+          Email:
+          <input id="email" name="email" type="text" value={email} onInput={setForm} placeholder="usuario@email.com" />
         </label>
         <label htmlFor="password">
           Senha:
-          <input name="password" type="password" value={password} onChange={setForm} placeholder="******" />
+          <input id="password" name="password" type="password" value={password} onChange={setForm} placeholder="******" />
         </label>
         <label htmlFor="confirm">
           Confirme a senha:
-          <input name="confirm" type="password" value={confirm} onChange={setForm} placeholder="******" />
+          <input id="confirm" name="confirm" type="password" value={confirm} onChange={setForm} placeholder="******" />
         </label>
       </div>
       <div className="btn-container">
