@@ -1,19 +1,19 @@
 import axios from 'axios';
 import getSaveUser from '../../functions/getSaveUser';
 import { actionError } from '../actions/appActions';
-import { actionTasks } from '../actions/taskAction';
-import { GET_TASKS } from './endpoints';
+import { actionTask } from '../actions/taskAction';
+import { TASK_BY_ID } from './endpoints';
 
-const allTasks = () => async (dispatch) => {
+const taskById = (id) => async (dispatch) => {
   try {
     const { token: authorization } = getSaveUser();
     const headers = { authorization };
-    const { data } = await axios.get(GET_TASKS, { headers });
-    dispatch(actionTasks(data));
+    const { data } = await axios.get(TASK_BY_ID(id), { headers });
+    dispatch(actionTask(data));
   } catch (err) {
     const { response: { data: { message } } } = err;
     dispatch(actionError(message));
   }
 };
 
-export default allTasks;
+export default taskById;

@@ -6,11 +6,12 @@ export const signForm = {
   confirm: '',
 };
 
-export const taskForm = {
-  priority: '',
+export const initialTaskForm = {
+  priority: '4',
   title: '',
   description: '',
   status: 'pending',
+  _id: '',
 };
 
 export const loginForm = {

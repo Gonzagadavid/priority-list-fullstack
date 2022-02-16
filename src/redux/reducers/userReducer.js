@@ -1,4 +1,5 @@
 import getSaveUser from '../../functions/getSaveUser';
+import { RESET } from '../actions/appActions';
 import { USER_DATA } from '../actions/userReducer';
 
 const USER_STATE = {
@@ -17,6 +18,9 @@ const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case USER_DATA:
       return { ...state, ...action.state };
+
+    case RESET:
+      return INITIAL_STATE;
 
     default: return state;
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ConditionalComponent from '../ConditionalComponent';
+import Logout from '../Logout';
 import './style.css';
 
 function Greeting() {
@@ -10,6 +11,9 @@ function Greeting() {
     <ConditionalComponent condition={logged}>
       <div className="Greeting">
         <p>{`Olá, ${name} ${lastname}`}</p>
+        <div className="logout">
+          <Logout />
+        </div>
       </div>
     </ConditionalComponent>
   );

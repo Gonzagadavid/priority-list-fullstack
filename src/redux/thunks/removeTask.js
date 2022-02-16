@@ -1,19 +1,21 @@
 import axios from 'axios';
 import getSaveUser from '../../functions/getSaveUser';
 import { actionError } from '../actions/appActions';
-import { actionTasks } from '../actions/taskAction';
-import { GET_TASKS } from './endpoints';
+import { actionTask } from '../actions/taskAction';
+import allTasks from './allTasks';
+import { TASK_BY_ID } from './endpoints';
 
-const allTasks = () => async (dispatch) => {
+const removeTask = (id) => async (dispatch) => {
   try {
     const { token: authorization } = getSaveUser();
     const headers = { authorization };
-    const { data } = await axios.get(GET_TASKS, { headers });
-    dispatch(actionTasks(data));
+    await axios.delete(TASK_BY_ID(id), { headers });
+    dispatch(allTasks());
+    dispatch(actionTask({}));
   } catch (err) {
     const { response: { data: { message } } } = err;
     dispatch(actionError(message));
   }
 };
 
-export default allTasks;
+export default removeTask;

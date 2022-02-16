@@ -1,0 +1,24 @@
+.TaskTools {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.TaskTools .order {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  height: 35px;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.TaskTools label {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}

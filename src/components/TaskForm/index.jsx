@@ -1,27 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { taskForm } from '../../constants/forms';
+import { initialTaskForm } from '../../constants/forms';
 import checkFields from '../../functions/checkFields';
 import useForm from '../../hooks/useForm';
 import { actionTaskForm } from '../../redux/actions/appActions';
 import postTask from '../../redux/thunks/postTask';
+import updateTask from '../../redux/thunks/updateTask';
 import ConditionalComponent from '../ConditionalComponent';
 import './style.css';
 
 function TaskForm() {
-  const [form, setForm, resetForm] = useForm(taskForm);
-  const { title, description } = form;
-  const checked = checkFields(Object.values(form));
+  const { taskForm, editTask } = useSelector((state) => state.appReducer);
+  const { task } = useSelector((state) => state.taskReducer);
+  const [form, setForm, resetForm] = useForm(initialTaskForm);
+  const {
+    title, description, priority, status, _id,
+  } = form;
+  const checked = checkFields(Object.values({
+    title, description, priority, status,
+  }));
   const dispatch = useDispatch();
-  const taskFormState = useSelector((state) => state.appReducer.taskForm);
+  const thunk = editTask ? updateTask : postTask;
+
+  useEffect(() => {
+    if (!editTask) return null;
+    return resetForm(task);
+  }, [editTask]);
 
   const sendTask = () => {
-    dispatch(postTask(form));
+    dispatch(thunk({ ...form }, _id));
+    resetForm();
+  };
+
+  const clearForm = () => {
+    dispatch(actionTaskForm(false));
     resetForm();
   };
 
   return (
-    <ConditionalComponent condition={taskFormState}>
+    <ConditionalComponent condition={taskForm}>
 
       <div className="TaskForm">
         <div className="form-container">
@@ -37,25 +54,25 @@ function TaskForm() {
           <div className="priority-container">
             <h4>Prioridade:</h4>
             <label htmlFor="priority-1">
-              <input type="radio" id="priority-1" value="1" name="priority" onChange={setForm} />
+              <input type="radio" id="priority-1" value="1" name="priority" checked={priority === '1'} onChange={setForm} />
               1 - Urgência
             </label>
             <label htmlFor="priority-2">
-              <input type="radio" id="priority-2" value="2" name="priority" onChange={setForm} />
+              <input type="radio" id="priority-2" value="2" name="priority" checked={priority === '2'} onChange={setForm} />
               2 - Urgência Menor
             </label>
             <label htmlFor="priority-3">
-              <input type="radio" id="priority-3" value="3" name="priority" onChange={setForm} />
+              <input type="radio" id="priority-3" value="3" name="priority" checked={priority === '3'} onChange={setForm} />
               3 - Menor Urgência
             </label>
             <label htmlFor="priority-4">
-              <input type="radio" id="priority-4" value="4" name="priority" onChange={setForm} />
+              <input type="radio" id="priority-4" value="4" name="priority" checked={priority === '4'} onChange={setForm} />
               4 - Sem Urgência
             </label>
           </div>
           <label htmlFor="status">
             Status:
-            <select name="status" onChange={setForm}>
+            <select name="status" onChange={setForm} value={status}>
               <option value="pending">Pendente</option>
               <option value="inProgress">Em andamento</option>
               <option value="completed">Pronto</option>
@@ -63,7 +80,7 @@ function TaskForm() {
           </label>
           <div className="btn-container">
             <button type="button" onClick={sendTask} disabled={!checked}>Concluir</button>
-            <button type="button" onClick={() => dispatch(actionTaskForm(false))}>Cancelar</button>
+            <button type="button" onClick={clearForm}>Cancelar</button>
           </div>
         </div>
       </div>
