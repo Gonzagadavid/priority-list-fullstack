@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest":true
     },
     "extends": [
         "plugin:react/recommended",
@@ -19,6 +20,8 @@
     ],
     "rules": {
         "default-param-last": "off",
-        "no-underscore-dangle":"off"
+        "no-underscore-dangle":"off",
+        "react/react-in-jsx-scope":"off",
+        "react/jsx-filename-extension":"off"
     }
 }

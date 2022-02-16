@@ -3,10 +3,6 @@
   overflow-y: auto;
   position: relative;
 }
-/* .TaskTable tbody {
-  height: 40%;
-  background-color: blue;
-} */
 
 .TaskTable thead {
   top: 0;
@@ -14,7 +10,6 @@
 }
 
 .TaskTable tbody {
-  background-color: brown;
   padding-top: 30px;
 }
 

@@ -1,4 +1,8 @@
 .TaskDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   width: 30%;
   height: 90%;

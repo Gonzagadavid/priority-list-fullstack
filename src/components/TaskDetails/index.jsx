@@ -29,7 +29,9 @@ function TaskDetails() {
       </ConditionalComponent>
       <ConditionalComponent condition={!!checkTask}>
         <h3>{title}</h3>
-        <p>{`${priorityList[priority]} - ${statusValues[status]} `}</p>
+        <div className="priority">
+          <p>{`${priorityList[priority]} - ${statusValues[status]} `}</p>
+        </div>
         <p>{description}</p>
         <p>{`Publicada em ${new Date(created).toLocaleString('pt-Br')}`}</p>
         <p>{`Modificada em ${new Date(updated).toLocaleString('pt-Br')}`}</p>
