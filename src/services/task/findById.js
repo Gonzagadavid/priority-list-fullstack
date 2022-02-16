@@ -4,8 +4,8 @@ const Task = new TaskModel();
 
 const findById = async (id) => {
   const task = await Task.findTaskById(id);
-
-  return task;
+  const { _id } = task;
+  return { ...task, _id };
 };
 
 export default findById;
