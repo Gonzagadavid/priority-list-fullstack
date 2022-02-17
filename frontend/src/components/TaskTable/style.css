@@ -1,0 +1,35 @@
+.TaskTable {
+  border: solid 1px white;
+  overflow-y: auto;
+  position: relative;
+}
+
+.TaskTable thead {
+  top: 0;
+  left: 0;
+}
+
+.TaskTable tbody {
+  padding-top: 30px;
+}
+
+.TaskTable tr {
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr 1fr;
+}
+
+
+.TaskTable th, td {
+  font-size: 20px;
+  margin-bottom: 5px;
+  padding: 5px;
+  text-align: center;
+  border-top: solid 1px white;
+  border-bottom: solid 1px white;
+  cursor: pointer;
+}
+
+.TaskTable th {
+  font-size: 25px;
+  font-weight: 400;
+}

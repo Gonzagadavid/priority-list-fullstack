@@ -1,0 +1,14 @@
+.TaskList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 60%;
+  height: 90%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.TaskList h2 {
+  font-size: 35px;
+}

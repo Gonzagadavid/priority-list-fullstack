@@ -1,0 +1,73 @@
+.TaskForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0 , 0, 0, 0.5);
+  z-index: 2;
+  font-size: 20px;
+}
+
+.TaskForm h2{ 
+  font-size: 30px;
+}
+
+.TaskForm .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 90%;
+  width: 50%;
+  background:
+  linear-gradient(rgb(8, 4, 53), transparent),
+  linear-gradient(to top left, lime, transparent),
+  linear-gradient(to top right, blue, transparent);
+  background-blend-mode: screen;
+}
+
+.TaskForm .form-container input[type="text"],
+.TaskForm .form-container textarea,
+.TaskForm .form-container select
+ {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  outline: none;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+}
+
+.TaskForm .form-container textarea {
+  height: 100px;
+  width: 500px;
+}
+
+.TaskForm .form-container .priority-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.TaskForm .form-container .btn-container {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.TaskForm .form-container .btn-container button {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  font-size: 20px;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
