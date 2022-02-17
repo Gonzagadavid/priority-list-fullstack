@@ -18,6 +18,7 @@
 - [Tecnologias](#tecnologias)
 - [Testes](#testes)
 - [Deploy](#deploy)
+- [Implementações Futuras](implementações-futuras)
 
 
 # Intordução
@@ -303,8 +304,10 @@ Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando
 - NodeJs
 - Express
 - Nodemon
-- Json Web Token
+- Jest
+- Supertest
 - MongoDB
+- Json Web Token
 - Dotenv
 - ESlint
 
@@ -319,13 +322,27 @@ Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando
   &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/mongodb.svg" />
   &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./assets/icons/jest.svg" />
+  &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/eslint.svg" />
 </div>
 
 # Testes
+
+Desenvolvido teste de integração para a rota `POST /user`
+
+Para rodar os teste implementado basta executar o comando `npm test`
+
+![resultado dos testes](./assets/testes.png)
+
 
 # Deploy
 
 Deploy feito no heroku [Heroku](https://www.heroku.com/)
 
  <img src="./assets/icons/heroku.svg" alt="heroku icon" height="70" width="70">
+
+# Implementações Futuras
+
+- 100% cobertura de testes
+- rota de pessoa administradora para direcionar tarefas.
