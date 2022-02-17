@@ -118,6 +118,23 @@ Ao clicar no botão de `editar tarefa` a tarefa selecionada será renderizada em
 
 # Testes
 
+Desenvolvido testes unitários para os componentes Login e Signup
+
+Para executar os testes implementado execute o comando `npm test`
+
+Para verificar a cobertura de test execute o comanto `npm run coverage`
+
+![resutado da cobertura de teste](./public/assets/testes.png)
+
 # Deploy
 
+# Deploy
+
+Para o deploy da aplicação foi escolhido a [Vercel](#https://vercel.com/)
+
 # Futuras implementações
+
+- cobertura de teste em 100% da aplicação
+
+- implementar página para a pessoa adminitradora direcionar tarefas para outras pessoas usuárias
+ 
