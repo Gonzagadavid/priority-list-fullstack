@@ -2,6 +2,10 @@
 
 <h1><a href="https://todo-list-frontend-green.vercel.app/" >Visite a Aplicação</a></h1>
 
+<h2><a href="https://github.com/Gonzagadavid/todo-list-fullstack" >Repositório Lista de Prioridades - Full Stack</a></h2>
+
+---
+
 <h2><a href="https://github.com/Gonzagadavid/todo-list-backend" >Repositório Lista de Prioridades - Backend</a></h2>
 
 --- 
