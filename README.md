@@ -60,9 +60,12 @@ O desenvolvimento da aplicação Lista de Prioridades teve como proposito otimiz
 
 10- execute o comando para instalar as dependências `npm install`
 
-11- execute o comando para iniciar a aplicação `npm start`
+11- no arquivo `./src/redux/thunks/endpoints.js` comente as linha com endpoints de produção e descomente os endpoints para rodar localmente
 
-12- a aplicação iniciará em `http://localhost:3000`
+12- execute o comando para iniciar a aplicação `npm start`
+
+13- a aplicação iniciará em `http://localhost:3000`
+
 
 
 
