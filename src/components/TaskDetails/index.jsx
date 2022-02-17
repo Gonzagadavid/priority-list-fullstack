@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { priorityList, statusValues } from '../../constants/lists';
+import { priorityColor, priorityList, statusValues } from '../../constants/lists';
 import { actionEditTask, actionTaskForm } from '../../redux/actions/appActions';
 import removeTask from '../../redux/thunks/removeTask';
 import ConditionalComponent from '../ConditionalComponent';
@@ -23,13 +23,13 @@ function TaskDetails() {
 
   return (
     <div className="TaskDetails">
-      <h2>TaskDetails</h2>
+      <h2>Detalhes da Tarefa</h2>
       <ConditionalComponent condition={!checkTask}>
         <h3>Nenhuma tarefa selecionada</h3>
       </ConditionalComponent>
       <ConditionalComponent condition={!!checkTask}>
         <h3>{title}</h3>
-        <div className="priority">
+        <div className="priority" style={{ backgroundColor: priorityColor[priority] }}>
           <p>{`${priorityList[priority]} - ${statusValues[status]} `}</p>
         </div>
         <p>{description}</p>

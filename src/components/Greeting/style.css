@@ -1,8 +1,24 @@
 .Header .Greeting {
   display: flex;
-  height: 100%;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  height: 90%;
   align-items: center;
-  position: absolute;
-  font-size: 25px;
-  right: 20px;
+  font-size: 27px;
+  padding: 0 20px;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.Header .Greeting button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  font-size: 20px;
+  color: white;
+  padding: 2px 10px;
+}
+
+.Header .Greeting button:hover {
+  background-color: white;
+  color: black;
 }

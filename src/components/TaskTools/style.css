@@ -3,6 +3,7 @@
   width: 70%;
   justify-content: space-around;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .TaskTools .order {
@@ -21,4 +22,13 @@ input[type="radio"] {
   display: flex;
   height: 100%;
   align-items: center;
+}
+
+.TaskTools button {
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 5px;
 }

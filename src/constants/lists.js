@@ -14,3 +14,10 @@ export const statusValues = {
   inProgress: 'Em Andamento',
   completed: 'Pronto',
 };
+
+export const priorityColor = {
+  1: 'rgba(185, 2, 2, 0.8)',
+  2: 'rgba(185, 127, 2, 0.8)',
+  3: 'rgba(226, 240, 30, 0.8)',
+  4: 'rgba(0, 204, 0, 0.8)',
+};

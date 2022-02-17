@@ -1,70 +1,123 @@
-# Getting Started with Create React App
+# Lista de Prioridades
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+- [Introdução](#introdução)
+- [Instruções](#instruções)
+- [Detalhes da aplicação](#detalhes)
+  - [Login](#login)
+  - [Cadastro](#cadastro)
+  - [Página Inicial](#página-inicial)
+  - [Adicionar uma nova tarefa](#adicionar-uma-nova-tarefa)
+  - [Lista de Tarefas](#lista-de-tarefas)
+  - [Detalhes da Tarefa](#detalhes-da-tarefa)
+  - [Editar Tarefa](#editar-tarefa)
+- [Tecnologias](#tecnologias)
+- [Testes](#testes)
+- [Deploy](#deploy)
 
-In the project directory, you can run:
 
-### `npm start`
+# Intordução
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O desenvolvimento da aplicação Lista de Prioridades teve como proposito otimizar a organização e produtividade das pessoas. Forma visual, a pessoa poderá organizar sua lista de tarefas, classificando a tarefa por nível de prioridade, status e data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![pagina principal da aplicação](./public//assets/detalhes-1.png)
 
-### `npm test`
+# Instruções
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1 - abra o terminal
 
-### `npm run build`
+2- clone o repositório do Backend `git clone git@github.com:Gonzagadavid/todo-list-backend.git`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3- entre no diretório do repositorio clonado `cd todo-list-backend`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4- execute o comando para instalar as dependências `npm install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5- preencha o arquivo `.env-eg` com os dados do seu banco de dados MongoDB local e mude o nome do arquivo para `.env`  
+*caso não tenha o MongoDB instalado siga o seguinte [tutorial](https://docs.mongodb.com/manual/installation/)* 
 
-### `npm run eject`
+6- execute o comando para iniciar o servidor `npm start`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+7- abra um nova janela do terminal
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+8- clone o repositório do Frontend `git clone git@github.com:Gonzagadavid/todo-list-frontend.git`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+9- entre no diretório do repositorio clonado `cd todo-list-frontend`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+10- execute o comando para instalar as dependências `npm install`
 
-## Learn More
+11- execute o comando para iniciar a aplicação `npm start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+12- a aplicação iniciará em `http://localhost:3000`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+# Detalhes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Login 
 
-### Analyzing the Bundle Size
+Ao iniciar o uso da aplicação será renderizado a tela de login, onde a pessoa usuária terá que informar o e-maile a senha, o botão `Entrar` será habilitado somente com todos os campos preenchidos, tendo como opção a pessoa manter-se logada na aplicação mesmo após fechar o navegador. Caso a pessoa não tenha cadastro, basta clicar no botão de cadastrar que a aplicação renderizará o formulário de registro.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![formulário de login](./public/assets/login.png)
 
-### Making a Progressive Web App
+## Cadastro
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Após a pessoa usuária clicar no botão cadastrar será renderizado o formulário de cadastro, a pessoa terá que informar nome, sobrenome, e-mail, senha e confirmar a senha, somente com esses campos preenchidos o botão 'Cadastrar' será habilitado. Após o registro ser feito o login será feito, porém só será válido durante a primeira sessão, sendo necessário o login na proxima sessão.
 
-### Advanced Configuration
+![formulário de registro](./public/assets/cadastro.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Página inicial
 
-### Deployment
+Depois de logar a página principal será renderizada, exibindo uma saudação com o nome da pessoa usuária no canto superior direito, junto ao botão de sair. A aplicação exibe dois container, um para exibir a lista de tarefas e um para exibir os detalhes das tarefas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![página principal](./public/assets/pagina-inicial.png)
 
-### `npm run build` fails to minify
+## Adicionar uma nova tarefa
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Na parte superior da lista de tarefas é localizado um botão para adicionar um nova tarefa, ao clicar no botão será renderizado um formulário para adicionar a tarefa, com os seguintes campos: titulo, descrição, status e prioridade.
+
+![formuláriuo para adicionar nova tarefa](./public/assets/add-tarefa.png)
+
+![mensagem de tarefa adicionada](./public/assets/add-sucesso.png)
+
+## Lista de tarefas
+
+Na lista de tarefas a pessoa usuária tem as opções de ordenar as tarefas por: prioridade, titulo, status e data, ao clicar em uma tarefa o detalhes da tarefa selecionada será exibido em Detalhe da Tarefa
+
+![Lista de tarefas](./public/assets/lista.png)
+
+## Detalhes da tarefa
+
+A tarefa selecionada na lista de tarefas será renderizada com os seguites detalhes: Título, prioridade, status, descrição, publicada em e modificada em. Em detalhes da tarefa também está localizado os botões para remover a tarefa e edita-la.
+
+![Detalhes da tarefa](./public/assets/detalhes-2.png)
+
+## Editar tarefa
+
+Ao clicar no botão de `editar tarefa` a tarefa selecionada será renderizada em um formulario para a modificação.
+
+![Formulário de edião de tarefa](./public/assets/editar.png)
+
+
+# Tecnologias
+
+- React
+- Redux
+- Testing Library
+- Axios
+- Eslint
+
+<div align="center">
+  <img height="100" width="100" src="./public/assets/icons/react.svg"/> 
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./public/assets/icons/redux.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./public/assets/icons/testinglibrary.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./public/assets/icons/eslint.svg" />
+</div>
+
+
+# Testes
+
+# Deploy
+
+# Futuras implementações

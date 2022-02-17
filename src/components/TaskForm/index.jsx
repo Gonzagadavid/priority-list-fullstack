@@ -21,7 +21,7 @@ function TaskForm() {
   }));
   const dispatch = useDispatch();
   const thunk = editTask ? updateTask : postTask;
-
+  const text = editTask ? 'Editar tarefa' : 'Adicionar nova tarefa';
   useEffect(() => {
     if (!editTask) return null;
     return resetForm(task);
@@ -42,7 +42,7 @@ function TaskForm() {
 
       <div className="TaskForm">
         <div className="form-container">
-          <h2>Adicionar nova tarefa</h2>
+          <h2>{text}</h2>
           <label htmlFor="title">
             Título:
             <input type="text" value={title} name="title" onChange={setForm} />
@@ -50,6 +50,14 @@ function TaskForm() {
           <label htmlFor="description">
             Descrição:
             <textarea name="description" value={description} onChange={setForm} />
+          </label>
+          <label htmlFor="status">
+            Status:
+            <select name="status" onChange={setForm} value={status}>
+              <option value="pending">Pendente</option>
+              <option value="inProgress">Em andamento</option>
+              <option value="completed">Pronto</option>
+            </select>
           </label>
           <div className="priority-container">
             <h4>Prioridade:</h4>
@@ -70,14 +78,6 @@ function TaskForm() {
               4 - Sem Urgência
             </label>
           </div>
-          <label htmlFor="status">
-            Status:
-            <select name="status" onChange={setForm} value={status}>
-              <option value="pending">Pendente</option>
-              <option value="inProgress">Em andamento</option>
-              <option value="completed">Pronto</option>
-            </select>
-          </label>
           <div className="btn-container">
             <button type="button" onClick={sendTask} disabled={!checked}>Concluir</button>
             <button type="button" onClick={clearForm}>Cancelar</button>

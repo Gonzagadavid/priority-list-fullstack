@@ -16,14 +16,21 @@
   justify-content: center;
   width: 30%;
   height: 40%;
-  background-color: rgb(95, 5, 5);
+  background:
+  linear-gradient(rgb(8, 4, 53), transparent),
+  linear-gradient(to top left, lime, transparent),
+  linear-gradient(to top right, blue, transparent);
+  background-blend-mode: screen;
   color:white;
 }
 
 .Message .message-container button{
-  border: none;
-  outline: none;
   font-size: 20px;
-  padding: 8px;
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  font-size: 20px;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

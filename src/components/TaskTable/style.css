@@ -26,6 +26,7 @@
   text-align: center;
   border-top: solid 1px white;
   border-bottom: solid 1px white;
+  cursor: pointer;
 }
 
 .TaskTable th {

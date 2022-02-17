@@ -6,4 +6,9 @@
   width: 60%;
   height: 90%;
   padding: 10px;
+  border-radius: 10px;
+}
+
+.TaskList h2 {
+  font-size: 35px;
 }

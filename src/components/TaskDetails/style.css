@@ -6,4 +6,42 @@
   background-color: rgba(0, 0, 0, 0.5);
   width: 30%;
   height: 90%;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.TaskDetails h2 {
+  font-size: 35px;
+}
+
+.TaskDetails h3 {
+  font-size: 25px;
+}
+
+.TaskDetails .priority {
+  background-color: rgba(0, 204, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 10%;
+  border-radius: 10px;
+}
+
+.TaskDetails .btn-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.TaskDetails .btn-container button {
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { actionReset } from '../../redux/actions/appActions';
+import { actionlogged, actionReset } from '../../redux/actions/appActions';
 import { clearStorage } from '../../services/storage';
 import './style.css';
 
@@ -10,6 +10,7 @@ function Logout() {
   const logout = () => {
     clearStorage('todo-user');
     dispatch(actionReset);
+    dispatch(actionlogged(false));
   };
   return (
     <div className="Logout">

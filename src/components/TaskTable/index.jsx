@@ -8,9 +8,10 @@ import taskById from '../../redux/thunks/taskById';
 import './style.css';
 
 function TaskTable() {
-  const { tasks, order } = useSelector((state) => state.taskReducer);
+  const { tasks, order, task: taskSelect } = useSelector((state) => state.taskReducer);
   const { logged } = useSelector((state) => state.appReducer);
   const dispatch = useDispatch();
+  const styleSelect = { backgroundColor: 'white', color: 'black' };
 
   useEffect(() => {
     if (!logged) return null;
@@ -27,8 +28,19 @@ function TaskTable() {
         </thead>
         <tbody>
           {sortTasks(tasks, order).map((task) => (
-            <tr key={uuidv4()} onClick={() => dispatch(taskById(task._id))}>
-              {taskskeys.map((key) => <td key={uuidv4()}>{task[key]}</td>)}
+            <tr
+              key={uuidv4()}
+              onClick={() => dispatch(taskById(task._id))}
+
+            >
+              {taskskeys.map((key) => (
+                <td
+                  key={uuidv4()}
+                  style={taskSelect._id === task._id ? styleSelect : {}}
+                >
+                  {task[key]}
+                </td>
+              ))}
             </tr>
           ))}
         </tbody>

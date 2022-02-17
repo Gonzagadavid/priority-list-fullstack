@@ -6,7 +6,7 @@ import './style.css';
 function TaskList() {
   return (
     <div className="TaskList">
-      <h2>TaskList</h2>
+      <h2>Lista Tarefas</h2>
       <TaskTools />
       <TaskTable />
     </div>
