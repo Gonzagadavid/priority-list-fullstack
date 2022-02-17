@@ -2,15 +2,9 @@
 
 <h1><a href="https://todo-list-frontend-green.vercel.app/" >Visite a Aplicação</a></h1>
 
-<h2><a href="https://github.com/Gonzagadavid/todo-list-frontend" >Repositório Lista de Prioridades - Frontend</a></h2>
-
----
 
 # Sumário
 
-- [Introdução](#introdução)
-- [Backend](#backend)
-- [Instruções](#instruções)
 - [Arquitetura](#Arquitetura)
 - [Rotas](#rotas)
   - [POST /user](post-/user)
@@ -31,36 +25,6 @@
 # Intordução
 
 O desenvolvimento da aplicação Lista de Prioridades teve como proposito otimizar a organização e produtividade das pessoas. Forma visual, a pessoa poderá organizar sua lista de tarefas, classificando a tarefa por nível de prioridade, status e data.
-
-
-# Instruções
-
-1 - abra o terminal
-
-2- clone o repositório do Backend `git clone git@github.com:Gonzagadavid/todo-list-backend.git`
-
-3- entre no diretório do repositorio clonado `cd todo-list-backend`
-
-4- execute o comando para instalar as dependências `npm install`
-
-5- preencha o arquivo `.env-eg` com os dados do seu banco de dados MongoDB local e mude o nome do arquivo para `.env`  
-*caso não tenha o MongoDB instalado siga o seguinte [tutorial](https://docs.mongodb.com/manual/installation/)* 
-
-6- execute o comando para iniciar o servidor `npm start`
-
-7- abra um nova janela do terminal
-
-8- clone o repositório do Frontend `git clone git@github.com:Gonzagadavid/todo-list-frontend.git`
-
-9- entre no diretório do repositorio clonado `cd todo-list-frontend`
-
-10- execute o comando para instalar as dependências `npm install`
-
-11- execute o comando para iniciar a aplicação `npm start`
-
-12- a aplicação iniciará em `http://localhost:3000`
-
-
 
 # Arquitetura
 
