@@ -9,7 +9,7 @@ function EntryContainer() {
   const { login, logged } = useSelector((state) => state.appReducer);
   return (
     <ConditionalComponent condition={!logged}>
-      <div className="EntryContainer">
+      <div className="EntryContainer" data-testid="entry-container">
         <ConditionalComponent condition={login}>
           <Login />
         </ConditionalComponent>
