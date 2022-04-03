@@ -69,4 +69,18 @@ describe('testa a renderização e o funcionamento do componente Login', () => {
 
     expect(btnEntrar).toBeEnabled();
   });
+
+  it(`verifica se ao digitar um email e a senha corretamente uma requisição é feita e
+   as informções são quardadas no sessionStore`, () => {
+    const btnEntrar = screen.getByRole('button', { name: 'Entrar' });
+    const email = screen.getByLabelText(/email/i);
+    const senha = screen.getByLabelText(/senha/i);
+
+    expect(btnEntrar).toBeDisabled();
+
+    userEvent.type(email, 'usuario@email.com');
+    userEvent.type(senha, '123456');
+
+    expect(btnEntrar).toBeEnabled();
+  });
 });
