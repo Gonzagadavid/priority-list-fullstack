@@ -152,7 +152,7 @@ describe('testa a renderização e o funcionamento do componente Login', () => {
     expect(axios.post).toBeCalledWith(SIGNUP, user);
   });
 
-  it('verifica se ao clicar no botão a action actionLoginRender é disparada', () => {
+  it('verifica se ao clicar no botão "Entrar" o estado login passa para valor de verdadeiro', () => {
     const appReducer = { login: false };
     const { store } = renderWithRedux(<Signup />, { ...reducer, appReducer });
     const btnEntrar = screen.getByRole('button', { name: 'Entrar' });
