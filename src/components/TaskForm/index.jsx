@@ -39,7 +39,6 @@ function TaskForm() {
 
   return (
     <ConditionalComponent condition={taskForm}>
-
       <div className="TaskForm">
         <div className="form-container">
           <h2>{text}</h2>
