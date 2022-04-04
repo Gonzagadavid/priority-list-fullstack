@@ -2,6 +2,8 @@
 
 <h1><a href="https://todo-list-frontend-green.vercel.app/" >Visite a Aplicação</a></h1>
 
+--- 
+
 # Sumário
 
 - [Detalhes da aplicação](#detalhes)

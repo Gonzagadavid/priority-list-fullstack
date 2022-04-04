@@ -18,7 +18,7 @@ function Message() {
   return (
     <ConditionalComponent condition={!!alert}>
       <div className="Message">
-        <div className="message-container">
+        <div className="message-container" data-testid="message">
           <h2>{alert}</h2>
           <button type="button" onClick={checkedMessage}>OK</button>
         </div>
