@@ -155,7 +155,7 @@ Para executar os testes implementado execute o comando `npm test`
 
 Para verificar a cobertura de test execute o comanto `npm run coverage`
 
-![resutado da cobertura de teste](./frontend/public/assets/testes.png)
+![resutado da cobertura de teste](./frontend/public/assets/tests.png)
 
 # Deploy
 
