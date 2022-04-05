@@ -1,14 +1,15 @@
 import { MongoClient } from 'mongodb';
 import {
-  describe, expect, it, jest, beforeAll, afterAll,
+  describe, jest, beforeAll, afterAll, expect, it,
 } from '@jest/globals';
 import request from 'supertest';
 import MongoClientMock from './helpers/MongoClientMock';
 import app from '../api/app';
 
-describe('Post /task', () => {
+describe('Get /task/:id', () => {
   let authorization = null;
   let connectionMock = null;
+  let taskId = null;
   beforeAll(async () => {
     connectionMock = await MongoClientMock();
     MongoClient.connect = jest.fn().mockResolvedValueOnce(connectionMock);
@@ -40,30 +41,23 @@ describe('Post /task', () => {
       .post('/task')
       .set({ authorization })
       .send({
-        title: 'Tarefa 1',
-        description: 'Descrição da tarefa 1',
+        title: 'Tarefa teste',
+        description: 'Descrição da tarefa teste',
         priority: '2',
         status: 'inProcess',
       });
 
-    await req
-      .post('/task')
-      .set({ authorization })
-      .send({
-        title: 'Tarefa 2',
-        description: 'Descrição da tarefa 2',
-        priority: '2',
-        status: 'inProcess',
-      });
+    const { _id } = await tasks.findOne({ title: 'Tarefa teste' });
+    taskId = _id.toString();
   });
 
   afterAll(() => {
     jest.restoreAllMocks();
   });
 
-  it('verifica a resposta ao tentar buscar tasks sem o token', async () => {
+  it('verifica a resposta ao tentar buscar uma task sem o token', async () => {
     const req = request(app);
-    const response = await req.get('/task');
+    const response = await req.get(`/task/${taskId}`);
 
     expect(response.statusCode).toBe(401);
     expect(response.body).toHaveProperty('message');
@@ -72,16 +66,18 @@ describe('Post /task', () => {
 
   it('verifica a resposta ao tentar buscar tasks corretamente', async () => {
     const req = request(app);
-    const response = await req
-      .get('/task')
+    const task = await req
+      .get(`/task/${taskId}`)
       .set({ authorization });
 
-    response.body.forEach((task) => {
-      expect(task).toHaveProperty('title');
-      expect(task).toHaveProperty('status');
-      expect(task).toHaveProperty('priority');
-      expect(task).toHaveProperty('created');
-      expect(task).toHaveProperty('_id');
-    });
+    expect(task.body).toHaveProperty('title');
+    expect(task.body).toHaveProperty('status');
+    expect(task.body).toHaveProperty('priority');
+    expect(task.body).toHaveProperty('created');
+    expect(task.body).toHaveProperty('_id');
+    expect(task.body.title).toBe('Tarefa teste');
+    expect(task.body.status).toBe('inProcess');
+    expect(task.body.priority).toBe('2');
+    expect(task.body._id).toBe(taskId);
   });
 });
