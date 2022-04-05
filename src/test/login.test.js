@@ -6,7 +6,7 @@ import request from 'supertest';
 import MongoClientMock from './helpers/MongoClientMock';
 import app from '../api/app';
 
-describe('Post /user', () => {
+describe('Post /user/login', () => {
   let connectionMock = null;
   beforeAll(async () => {
     connectionMock = await MongoClientMock();
@@ -15,6 +15,16 @@ describe('Post /user', () => {
     const db = await connectionMock.db('TodoList');
     const users = await db.collection('users');
     await users.deleteMany({});
+
+    const req = request(app);
+    await req
+      .post('/user')
+      .send({
+        name: 'usuario1',
+        lastname: 'dos Testes',
+        email: 'usuario1@email.com',
+        password: '123456',
+      });
   });
 
   afterAll(() => {
@@ -24,10 +34,8 @@ describe('Post /user', () => {
   it('verifica a resposta com email inválido', async () => {
     const req = request(app);
     const response = await req
-      .post('/user')
+      .post('/user/login')
       .send({
-        name: 'usuario1',
-        lastname: 'dos Testes',
         email: 'usuario1email.com',
         password: '123456',
       });
@@ -36,59 +44,53 @@ describe('Post /user', () => {
     expect(response.body.message).toBe('Invalid entries. Try again.');
   });
 
-  it('verifica a resposta sem lastname', async () => {
+  it('verifica a resposta ao enviar uma requisição sem email', async () => {
     const req = request(app);
     const response = await req
-      .post('/user')
+      .post('/user/login')
       .send({
-        name: 'usuario1',
-        email: 'usuario1email.com',
         password: '123456',
+      });
+
+    expect(response.statusCode).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body.message).toBe('Invalid entries. Try again.');
+  });
+
+  it('verifica a resposta ao enviar uma requisição sem password', async () => {
+    const req = await request(app);
+    const response = await req
+      .post('/user/login')
+      .send({
+        email: 'usuario1email.com',
       });
     expect(response.statusCode).toBe(400);
     expect(response.body).toHaveProperty('message');
     expect(response.body.message).toBe('Invalid entries. Try again.');
   });
 
-  it('verifica a resposta sem name', async () => {
+  it('verifica resposta status 404 com usuario não cadastrado', async () => {
     const req = request(app);
     const response = await req
-      .post('/user')
+      .post('/user/login')
       .send({
-        lastname: 'dos Testes',
-        email: 'usuario1email.com',
+        email: 'semregistro@email.com',
         password: '123456',
       });
-    expect(response.statusCode).toBe(400);
+    expect(response.statusCode).toBe(404);
     expect(response.body).toHaveProperty('message');
-    expect(response.body.message).toBe('Invalid entries. Try again.');
-  });
-
-  it('verifica a resposta sem senha inválido', async () => {
-    const req = request(app);
-    const response = await req
-      .post('/user')
-      .send({
-        name: 'usuario1',
-        lastname: 'dos Testes',
-        email: 'usuario1@email.com',
-      });
-    expect(response.statusCode).toBe(400);
-    expect(response.body).toHaveProperty('message');
-    expect(response.body.message).toBe('Invalid entries. Try again.');
+    expect(response.body.message).toBe('User not found');
   });
 
   it('verifica resposta status 201 com usuario válido', async () => {
     const req = request(app);
     const response = await req
-      .post('/user')
+      .post('/user/login')
       .send({
-        name: 'usuario1',
-        lastname: 'dos Testes',
         email: 'usuario1@email.com',
         password: '123456',
       });
-    expect(response.statusCode).toBe(201);
+    expect(response.statusCode).toBe(202);
     expect(response.body).toHaveProperty('name');
     expect(response.body).toHaveProperty('lastname');
     expect(response.body).toHaveProperty('email');
@@ -97,20 +99,5 @@ describe('Post /user', () => {
     expect(response.body.name).toBe('usuario1');
     expect(response.body.lastname).toBe('dos Testes');
     expect(response.body.email).toBe('usuario1@email.com');
-  });
-
-  it('verifica a resposta com email já registrado', async () => {
-    const req = request(app);
-    const response = await req
-      .post('/user')
-      .send({
-        name: 'usuario1',
-        lastname: 'dos Testes',
-        email: 'usuario1@email.com',
-        password: '123456',
-      });
-    expect(response.statusCode).toBe(409);
-    expect(response.body).toHaveProperty('message');
-    expect(response.body.message).toBe('Email already registered');
   });
 });
