@@ -65,6 +65,60 @@ const swaggerDocs = {
         },
       },
     },
+    '/user/login': {
+      post: {
+        summary: 'Login da pessoa usuária',
+        description: 'Rota responsável por verificar o registro da pessoa usuária e retornar um token junto com outras informações',
+        tags: ['User'],
+        requestBody: {
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  email: {
+                    type: 'string',
+                  },
+                  password: {
+                    type: 'string',
+                  },
+                },
+              },
+              examples: {
+                user: {
+                  value: {
+                    email: 'user@server.com',
+                    password: '123456',
+                  },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          400: {
+            description: 'Invalid entries. Try again.',
+          },
+          404: {
+            description: 'User not found',
+          },
+          401: {
+            description: 'Incorrect password',
+          },
+          202: {
+            description: 'ACCEPTED',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  $ref: '#/components/schemas/UserInfo',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
   components: {
     schemas: {
