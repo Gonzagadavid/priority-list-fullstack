@@ -2,7 +2,7 @@ const swaggerDocs = {
   openapi: '3.0.0',
   info: {
     title: 'Priority List',
-    description: 'aplicação desenvolvida tendo como proposito otimizar a organização e produtividade das pessoas. Forma visual, a pessoa poderá organizar sua lista de tarefas, classificando a tarefa por nível de prioridade, status e data',
+    description: 'Aplicação desenvolvida tendo como proposito otimizar a organização e produtividade das pessoas. Forma visual, a pessoa poderá organizar sua lista de tarefas, classificando a tarefa por nível de prioridade, status e data.',
     contact: {
       email: 'gonzagadaviddev@gmail.com',
     },
@@ -10,10 +10,6 @@ const swaggerDocs = {
     version: '1.0.0',
   },
   servers: [
-    {
-      url: 'http://localhost:3800',
-      description: 'Local API',
-    },
     {
       url: 'https://todo-priority-list.herokuapp.com',
       description: 'Production API',
@@ -264,7 +260,7 @@ const swaggerDocs = {
         },
       },
       delete: {
-        summary: 'deleta a tarefa pelo id',
+        summary: 'Deleta a tarefa pelo id',
         description: 'Rota responsável por deletar a tarefa  de acordo com id',
         tags: ['Task'],
         security: [{ JWT: [] }],
