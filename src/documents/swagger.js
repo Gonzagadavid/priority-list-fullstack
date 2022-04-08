@@ -157,6 +157,25 @@ const swaggerDocs = {
           },
         },
       },
+      get: {
+        summary: 'Retorna as tarefas',
+        description: 'Rota responsável por retornar as informações basicas de todas as tarefas da pessoa usuária',
+        tags: ['Task'],
+        security: [{ JWT: [] }],
+        responses: {
+          200: {
+            description: 'OK',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'array',
+                  $ref: '#/components/schemas/TaskInfo',
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
   components: {
@@ -214,6 +233,26 @@ const swaggerDocs = {
             type: 'string',
           },
           status: {
+            type: 'string',
+          },
+        },
+      },
+      TaskInfo: {
+        type: 'object',
+        properties: {
+          _id: {
+            type: 'string',
+          },
+          title: {
+            type: 'string',
+          },
+          priority: {
+            type: 'string',
+          },
+          status: {
+            type: 'string',
+          },
+          created: {
             type: 'string',
           },
         },
