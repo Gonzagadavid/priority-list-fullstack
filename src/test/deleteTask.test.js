@@ -6,7 +6,7 @@ import request from 'supertest';
 import MongoClientMock from './helpers/MongoClientMock';
 import app from '../api/app';
 
-describe('Get /task/:id', () => {
+describe('Delete /task/:id', () => {
   let authorization = null;
   let connectionMock = null;
   let taskId = null;
