@@ -19,7 +19,6 @@ class DBModel {
   }
 
   async insertOne(item) {
-    console.log(item);
     this.connection = await connection();
     const response = await this.connection.collection(this.collection).insertOne(item);
     return response;

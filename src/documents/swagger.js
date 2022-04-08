@@ -163,6 +163,9 @@ const swaggerDocs = {
         tags: ['Task'],
         security: [{ JWT: [] }],
         responses: {
+          401: {
+            description: 'jwt malformed / missing auth token',
+          },
           200: {
             description: 'OK',
             content: {
@@ -170,6 +173,38 @@ const swaggerDocs = {
                 schema: {
                   type: 'array',
                   $ref: '#/components/schemas/TaskInfo',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    '/task/{id}': {
+      get: {
+        summary: 'Retorna a tarefa pelo id',
+        description: 'Rota responsável por retornar a tarefa completa de acordo com id',
+        tags: ['Task'],
+        security: [{ JWT: [] }],
+        parameters: [
+          {
+            name: 'id',
+            in: 'path',
+            description: 'id da tarefa a ser requisitada',
+            requiired: true,
+          },
+        ],
+        responses: {
+          401: {
+            description: 'jwt malformed / missing auth token',
+          },
+          200: {
+            description: 'OK',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  $ref: '#/components/schemas/TaskDetails',
                 },
               },
             },
@@ -253,6 +288,35 @@ const swaggerDocs = {
             type: 'string',
           },
           created: {
+            type: 'string',
+          },
+        },
+      },
+      TaskDetails: {
+        type: 'object',
+        properties: {
+          _id: {
+            type: 'string',
+          },
+          userId: {
+            type: 'string',
+          },
+          title: {
+            type: 'string',
+          },
+          description: {
+            type: 'string',
+          },
+          priority: {
+            type: 'string',
+          },
+          status: {
+            type: 'string',
+          },
+          created: {
+            type: 'string',
+          },
+          updated: {
             type: 'string',
           },
         },
