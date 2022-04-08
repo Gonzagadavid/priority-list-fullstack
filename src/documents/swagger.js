@@ -11,12 +11,12 @@ const swaggerDocs = {
   },
   servers: [
     {
-      url: 'https://todo-priority-list.herokuapp.com',
-      description: 'Production API',
-    },
-    {
       url: 'http://localhost:3800',
       description: 'Local API',
+    },
+    {
+      url: 'https://todo-priority-list.herokuapp.com',
+      description: 'Production API',
     },
   ],
   paths: {
@@ -119,6 +119,45 @@ const swaggerDocs = {
         },
       },
     },
+    '/task': {
+      post: {
+        summary: 'Registra uma tarefa',
+        description: 'Rota responsável para o registro de um tarefa no banco de dados',
+        tags: ['Task'],
+        security: [{ JWT: [] }],
+        requestBody: {
+          content: {
+            'application/json': {
+              schema: {
+                $ref: '#/components/schemas/Task',
+              },
+              examples: {
+                task: {
+                  value: {
+                    title: 'Tarefa 3',
+                    description: 'Descrição da tarefa 3',
+                    priority: '2',
+                    status: 'inProcess',
+                  },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          400: {
+            description: 'Invalid entries. Try again.',
+          },
+          401: {
+            description: 'jwt malformed / missing auth token',
+          },
+          201: {
+            description: 'Task created successfully',
+
+          },
+        },
+      },
+    },
   },
   components: {
     schemas: {
@@ -161,6 +200,30 @@ const swaggerDocs = {
             type: 'string',
           },
         },
+      },
+      Task: {
+        type: 'object',
+        properties: {
+          title: {
+            type: 'string',
+          },
+          description: {
+            type: 'string',
+          },
+          priority: {
+            type: 'string',
+          },
+          status: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    securitySchemes: {
+      JWT: {
+        type: 'apiKey',
+        name: 'authorization',
+        in: 'header',
       },
     },
   },
