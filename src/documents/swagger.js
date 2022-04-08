@@ -211,6 +211,58 @@ const swaggerDocs = {
           },
         },
       },
+      put: {
+        summary: 'Atualiza a tarefa pelo id',
+        description: 'Rota responsável por atualiza a tarefa  de acordo com id',
+        tags: ['Task'],
+        security: [{ JWT: [] }],
+        parameters: [
+          {
+            name: 'id',
+            in: 'path',
+            description: 'id da tarefa a ser requisitada',
+            requiired: true,
+          },
+        ],
+        requestBody: {
+          content: {
+            'application/json': {
+              schema: {
+                $ref: '#/components/schemas/Task',
+              },
+              examples: {
+                task: {
+                  value: {
+                    title: 'Tarefa 3',
+                    description: 'Descrição da tarefa 3',
+                    priority: '2',
+                    status: 'inProcess',
+                  },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          400: {
+            description: 'Invalid entries. Try again.',
+          },
+          401: {
+            description: 'jwt malformed / missing auth token',
+          },
+          200: {
+            description: 'OK',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  $ref: '#/components/schemas/TaskDetails',
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
   components: {

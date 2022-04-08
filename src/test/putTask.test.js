@@ -135,7 +135,7 @@ describe('Put /task/:id', () => {
     expect(response.body.message).toBe('missing auth token');
   });
 
-  it('verifica a resposta ao tentar buscar tasks corretamente', async () => {
+  it('verifica a resposta ao autalizar uma task corretamente', async () => {
     const req = request(app);
     const task = await req
       .put(`/task/${taskId}`)
