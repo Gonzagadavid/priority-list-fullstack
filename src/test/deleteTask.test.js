@@ -72,6 +72,6 @@ describe('Get /task/:id', () => {
 
     expect(response.statusCode).toBe(202);
     expect(response.body).toHaveProperty('message');
-    expect(response.body.message).toBe('task removed successfully');
+    expect(response.body.message).toBe('Task removed successfully');
   });
 });

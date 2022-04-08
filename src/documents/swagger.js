@@ -213,7 +213,7 @@ const swaggerDocs = {
       },
       put: {
         summary: 'Atualiza a tarefa pelo id',
-        description: 'Rota responsável por atualiza a tarefa  de acordo com id',
+        description: 'Rota responsável por atualizar a tarefa  de acordo com id',
         tags: ['Task'],
         security: [{ JWT: [] }],
         parameters: [
@@ -260,6 +260,28 @@ const swaggerDocs = {
                 },
               },
             },
+          },
+        },
+      },
+      delete: {
+        summary: 'deleta a tarefa pelo id',
+        description: 'Rota responsável por deletar a tarefa  de acordo com id',
+        tags: ['Task'],
+        security: [{ JWT: [] }],
+        parameters: [
+          {
+            name: 'id',
+            in: 'path',
+            description: 'id da tarefa a ser requisitada',
+            requiired: true,
+          },
+        ],
+        responses: {
+          401: {
+            description: 'jwt malformed / missing auth token',
+          },
+          202: {
+            description: 'Task removed successfully',
           },
         },
       },
