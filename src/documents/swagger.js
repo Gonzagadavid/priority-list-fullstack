@@ -11,10 +11,6 @@ const swaggerDocs = {
   },
   servers: [
     {
-      url: 'http://localhost:3800',
-      description: 'Local API',
-    },
-    {
       url: 'https://todo-priority-list.herokuapp.com',
       description: 'Production API',
     },
