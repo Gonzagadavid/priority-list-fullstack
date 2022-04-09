@@ -189,6 +189,13 @@ Sequindo o formato da arquitetura em camadas MSC *(Model Service Controllers)*, 
 
 ![estruturação de pastas](./backend/assets/estrutura.png)
 
+# Documentação Swagger
+
+Para acessar a documentação swagger:
+
+Produção: https://todo-priority-list.herokuapp.com/docs/
+
+Local: `http://localhost:3800/docs/`
 
 # Rotas
 
