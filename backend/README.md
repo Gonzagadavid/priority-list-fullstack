@@ -26,6 +26,15 @@
 
 O desenvolvimento da aplicação Lista de Prioridades teve como proposito otimizar a organização e produtividade das pessoas. Forma visual, a pessoa poderá organizar sua lista de tarefas, classificando a tarefa por nível de prioridade, status e data.
 
+# Documentação Swagger
+
+Para acessar a documentação swagger:
+
+Produção: https://todo-priority-list.herokuapp.com/docs/
+
+Local: `http://localhost:3800/docs/`
+
+
 # Arquitetura
 
 Sequindo o formato da arquitetura em camadas MSC *(Model Service Controllers)*, a estruturação do código foi feito de forma tornar o código légivel e de fácil entendimento, visando o  reaproveitamento e não gerar problemas para a implementação de futuras melhorias, novas funcionalidades e escalabilidade.
@@ -279,23 +288,26 @@ Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando
 - Supertest
 - MongoDB
 - Json Web Token
+- Swagger
 - Dotenv
 - ESlint
 
 <div align="center">
-  <img height="100" width="100" src="./assets/icons/nodedotjs.svg"/> 
-  &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/express.svg" />
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./assets/icons/nodemon.svg" />
+  <img height="100" width="100" src="./assets/icons/nodedotjs.svg"/>
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./assets/icons/jsonwebtokens.svg" />
+  <img height="100" width="100" src="./assets/icons/nodemon.svg" />
   &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/mongodb.svg" />
   &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/jest.svg" />
   &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./assets/icons/swagger.svg" />
+  &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/eslint.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./assets/icons/jsonwebtokens.svg" />
 </div>
 
 # Testes
@@ -304,7 +316,7 @@ Desenvolvido teste de integração para a rota `POST /user`
 
 Para rodar os teste implementado basta executar o comando `npm test`
 
-![resultado dos testes](./assets/testes.png)
+![resultado dos testes](./assets/tests.png)
 
 
 # Deploy
@@ -317,5 +329,4 @@ Deploy feito no heroku [Heroku](https://www.heroku.com/)
 
 # Implementações Futuras
 
-- 100% cobertura de testes
 - rota de pessoa administradora para direcionar tarefas.

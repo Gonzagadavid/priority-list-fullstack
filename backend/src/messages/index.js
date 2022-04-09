@@ -7,5 +7,5 @@ export const TASK_CREATED = {
 };
 
 export const TASK_REMOVED = {
-  message: 'task removed successfully',
+  message: 'Task removed successfully',
 };

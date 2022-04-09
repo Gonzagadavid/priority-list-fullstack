@@ -432,19 +432,21 @@ Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando
 - ESlint
 
 <div align="center">
-  <img height="100" width="100" src="./backend/assets/icons/nodedotjs.svg"/> 
-  &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./backend/assets/icons/express.svg" />
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./backend/assets/icons/nodemon.svg" />
+  <img height="100" width="100" src="./backend/assets/icons/nodedotjs.svg"/> 
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./backend/assets/icons/jsonwebtokens.svg" />
+  <img height="100" width="100" src="./backend/assets/icons/nodemon.svg" />
   &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./backend/assets/icons/mongodb.svg" />
   &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./backend/assets/icons/jest.svg" />
   &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./backend/assets/icons/swagger.svg" />
+  &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./backend/assets/icons/eslint.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./backend/assets/icons/jsonwebtokens.svg" />
 </div>
 
 # Testes

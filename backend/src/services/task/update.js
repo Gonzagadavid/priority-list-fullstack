@@ -2,12 +2,12 @@ import TaskModel from '../../models/TaskModel.js';
 
 const Task = new TaskModel();
 
-const upadate = async (id, task) => {
+const update = async (id, task) => {
   await Task.updateTask(id, task);
 
-  const taskUpadated = await Task.findTaskById(id);
+  const taskUpdated = await Task.findTaskById(id);
 
-  return taskUpadated;
+  return taskUpdated;
 };
 
-export default upadate;
+export default update;
