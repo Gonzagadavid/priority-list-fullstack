@@ -6,6 +6,7 @@
 # Sumário
 
 - [Arquitetura](#Arquitetura)
+- [Documentação Swagger](#Documentação-Suwagger)
 - [Rotas](#rotas)
   - [POST /user](post-/user)
   - [POST /user/login](post-/user/login)
