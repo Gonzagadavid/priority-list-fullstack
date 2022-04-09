@@ -331,6 +331,7 @@ Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando
 - Supertest
 - MongoDB
 - Json Web Token
+- Swagger
 - Dotenv
 - ESlint
 
