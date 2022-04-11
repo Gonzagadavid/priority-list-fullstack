@@ -49,14 +49,6 @@
 
 O desenvolvimento da aplicação Lista de Prioridades teve como proposito otimizar a organização e produtividade das pessoas. De forma visual, a pessoa poderá organizar sua lista de tarefas, classificando a tarefa por nível de prioridade, status e data.
 
-# Documentação Swagger
-
-Para acessar a documentação swagger:
-
-Produção: https://todo-priority-list.herokuapp.com/docs/
-
-Local: `http://localhost:3800/docs/`
-
 # Instruções
 
 1 - abra o terminal
