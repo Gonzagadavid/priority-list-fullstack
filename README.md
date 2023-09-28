@@ -185,7 +185,7 @@ Sequindo o formato da arquitetura em camadas MSC *(Model Service Controllers)*, 
 
 Para acessar a documentação swagger:
 
-Produção: https://todo-priority-list.herokuapp.com/docs/
+Produção: https://priority-list.adaptable.app/docs/
 
 Local: `http://localhost:3800/docs/`
 
